@@ -7,3 +7,5 @@
 ---------
 
 * Архитектура информационных систем — [SystemArchitecture](/SystemArchitecture/) — преподаватель Иванов Андрей
+* Машинное обучение — [MachineLearning](/MachineLearning/) — преподаватель Сираков Дмитрий
+* Продвинутый Python — [AdvancedPython](/AdvancedPython/) — преподаватель Михайлова Софья
