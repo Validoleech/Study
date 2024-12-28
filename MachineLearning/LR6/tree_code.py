@@ -210,6 +210,8 @@ class DecisionTree:
         """
         # ╰( ͡☉ ͜ʖ ͡☉ )つ──☆*:・ﾟ   ฅ^•ﻌ•^ฅ   ʕ•ᴥ•ʔ
 
+        x = np.array(x)
+
         # Если узел терминальный, возвращаем класс
         if node["type"] == "terminal":
             return node["class"]
