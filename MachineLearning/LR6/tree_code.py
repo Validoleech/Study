@@ -124,6 +124,9 @@ class DecisionTree:
             Узел дерева, который будет заполнен информацией о разбиении.
 
         """
+
+        sub_X, sub_y = np.array(sub_X), np.array(sub_y)
+
         if np.all(sub_y == sub_y[0]):
             node["type"] = "terminal"
             node["class"] = sub_y[0]
@@ -155,7 +158,7 @@ class DecisionTree:
 
             _, _, threshold, gini = find_best_split(feature_vector, sub_y)
 
-            if gini_best is None or gini > gini_best:
+            if gini_best is None or gini < gini_best:
                 feature_best = feature
                 gini_best = gini
                 split = feature_vector < threshold
@@ -206,13 +209,23 @@ class DecisionTree:
             Предсказанный класс объекта.
         """
         # ╰( ͡☉ ͜ʖ ͡☉ )つ──☆*:・ﾟ   ฅ^•ﻌ•^ฅ   ʕ•ᴥ•ʔ
-        pass
+
+        # Если узел терминальный, возвращаем класс
+        if node["type"] == "terminal":
+            return node["class"]
+
+        feature_split = node["feature_split"]
+
+        if "threshold" in node:
+            return self._predict_node(x, node["left_child"] if x[feature_split] < node["threshold"] else node["right_child"])
+
+        if "categories_split" in node:
+            return self._predict_node(x, node["left_child"] if x[feature_split] in node["categories_split"] else node["right_child"])
+
+        raise ValueError("Неверая структура узла")
 
     def fit(self, X, y):
         self._fit_node(X, y, self._tree)
 
     def predict(self, X):
-        predicted = []
-        for x in X:
-            predicted.append(self._predict_node(x, self._tree))
-        return np.array(predicted)
+        return np.array([self._predict_node(x, self._tree) for x in X])
