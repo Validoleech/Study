@@ -1,0 +1,26 @@
+{
+    "timestamp": "20250512_103050",
+    "model": "RandomForest",
+    "cv": "KFold",
+    "features": [
+        "drive.current_mean_15_len_10_shift",
+        "drive.current_mean_45_len_10_shift",
+        "drive.current_min_45_len_5_shift",
+        "drive.current_max_90_len_5_shift",
+        "raw_mix.consumption_mean_15_len_10_shift",
+        "raw_mix.consumption_min_45_len_5_shift",
+        "raw_mix.consumption_mean_300_len_30_shift",
+        "raw_mix.moisture_avg_mean_60_len_15_shift",
+        "temp.out_mean_25_len_5_shift",
+        "temp.inlet_mean_25_len_5_shift",
+        "temp.out_min_25_len_5_shift",
+        "temp.inlet_max_30_len_5_shift"
+    ],
+    "metrics": {
+        "mae": 1.1439080538085231,
+        "mse": 1.9984970571278766,
+        "mae_baseline": 1.2315831510610857,
+        "mae_baseline_shift": 1.6343940493468796,
+        "same_direction_ratio": 0.5425979680696662
+    }
+}

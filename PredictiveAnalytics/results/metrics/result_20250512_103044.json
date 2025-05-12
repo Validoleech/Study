@@ -1,0 +1,26 @@
+{
+    "timestamp": "20250512_103044",
+    "model": "Ridge",
+    "cv": "Holdout",
+    "features": [
+        "drive.current_mean_15_len_10_shift",
+        "drive.current_mean_45_len_10_shift",
+        "drive.current_min_45_len_5_shift",
+        "drive.current_max_90_len_5_shift",
+        "raw_mix.consumption_mean_15_len_10_shift",
+        "raw_mix.consumption_min_45_len_5_shift",
+        "raw_mix.consumption_mean_300_len_30_shift",
+        "raw_mix.moisture_avg_mean_60_len_15_shift",
+        "temp.out_mean_25_len_5_shift",
+        "temp.inlet_mean_25_len_5_shift",
+        "temp.out_min_25_len_5_shift",
+        "temp.inlet_max_30_len_5_shift"
+    ],
+    "metrics": {
+        "mae": 1.058512065600105,
+        "mse": 1.9116224683983853,
+        "mae_baseline": 0.9656721536351165,
+        "mae_baseline_shift": 1.1934579439252333,
+        "same_direction_ratio": 0.4766355140186916
+    }
+}
